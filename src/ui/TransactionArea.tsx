@@ -1,7 +1,7 @@
 import React, { Dispatch, useState } from 'react';
 
 import TextField from '@mui/material/TextField';
-import { Amount, Posting, Transaction } from './data_types';
+import { Amount, Posting, Transaction } from '../electron/data_types';
 import { Button } from '@mui/material';
 
 // 定义 Action 类型

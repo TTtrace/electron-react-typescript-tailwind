@@ -1,4 +1,4 @@
-import { Amount, Posting, Transaction } from './data_types';
+import { Amount, Posting, Transaction } from '../electron/data_types';
 
 export function createTestTransaction(): Transaction {
   const increasingPosting: Posting = {

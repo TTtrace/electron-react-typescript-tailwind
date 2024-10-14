@@ -1,0 +1,94 @@
+{
+    "AsIs": {
+      "零钱": "Assets:WeChat:LingQian",
+      "零钱通": "Assets:WeChat:LingQianTong",
+      "工商银行储蓄卡(0183)": "Assets:ICBC:Debit:0183",
+      "招商银行储蓄卡(4635)": "Assets:CMB:Debit:4635",
+      "正餐消费": "Expenses:EatDrink:Meals",
+      "零食消费": "Expenses:EatDrink:Snacks",
+      "娱乐消费": "Expenses:Entertainment",
+      "日常花销": "Expenses:DailyExpenditures"
+    },
+    "rules":{
+      "支付成功": {
+      "definitive": true,
+      "conditions": {
+        "收/支": "支出",
+        "当前状态": ["支付成功", "已转账"]
+      },
+      "action": {
+        "decreasing_account": "AsIs"
+      }
+    },
+    "转账": {
+      "definitive": true,
+      "conditions": {
+        "交易类型": "转账",
+        "当前状态": "对方已收钱"
+      },
+      "action": {
+        "decreasing_account": "AsIs"
+      }
+    },
+    "已存入零钱": {
+      "definitive": true,
+      "conditions": {
+        "收/支": "收入",
+        "当前状态": "已存入零钱"
+      },
+      "action": {
+        "increasing_account": "Assets:WeChat:LingQian"
+      }
+    },
+    "luckin coffee": {
+      "definitive": true,
+      "conditions": {
+        "交易对方": "luckin coffee",
+        "当前状态": "支付成功"
+      },
+      "action": {
+        "increasing_account": "Expenses:EatDrink:Snacks"
+      }
+    },
+    "全兴矿泉" : {
+      "definitive": true,
+      "conditions": {
+        "交易对方": "全兴矿泉",
+        "当前状态": "对方已收钱"
+      },
+      "action": {
+        "increasing_account": "Expenses:DailyExpenditures"
+      }
+    },
+    "商户辛丽容" : {
+      "definitive": true,
+      "conditions": {
+        "交易对方": "商户辛丽容",
+        "当前状态": "支付成功"
+      },
+      "action": {
+        "increasing_account": "Expenses:EatDrink:Meals"
+      }
+    },
+    "起点中文网" : {
+      "definitive": true,
+      "conditions": {
+        "交易对方": "起点中文网",
+        "当前状态": "支付成功"
+      },
+      "action": {
+        "increasing_account": "Expenses:Entertainment"
+      }
+    },
+    "商户消费":{
+      "definitive": false,
+      "conditions": {
+        "交易类型": "商户消费",
+        "金额(元)": "<10"
+      },
+      "action": {
+        "increasing_account": "Expenses:DailyExpenditures"
+      }
+    }
+    }
+  }

@@ -3,7 +3,7 @@ import './App.css';
 import ConfigArea from './ConfigArea';
 import TransactionArea, { transactionReducer } from './TransactionArea';
 import ConfirmAccountArea from './ConfirmAccountArea';
-import { Accounts } from './data_types';
+import { Accounts } from '../electron/data_types';
 import { createTestTransaction } from './testdata';
 
 function App() {
